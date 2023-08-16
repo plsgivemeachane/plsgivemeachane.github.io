@@ -1,0 +1,223 @@
+body {
+  background-image: linear-gradient(to bottom right, #6190E8, #A7BFE8);
+  /* Pastel color */
+  margin: 0;
+  font-family: system-ui, -apple-system, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+#content {
+  position: relative;
+  width: 80%;
+  /* Add max-width to limit the width */
+  height: 500px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 10px;
+  resize: horizontal;
+}
+
+@media (max-width: 600px) {
+
+  /* Change the value to the desired breakpoint */
+  #content {
+    width: 90%;
+    height: 90%;
+  }
+}
+
+
+#ribbon {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  width: 100%;
+  height: 20px;
+  background-color: black;
+}
+
+#ribbon span {
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}
+
+#form {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+#chat {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  align-self: flex-end;
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  transition: 100ms;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: large;
+  font-family: Arial;
+  resize: none;
+}
+
+#chat:focus {
+  border: none;
+}
+
+#form button {
+  border: none;
+  background-color: #52575D;
+  border-radius: 5px;
+  color: white;
+  padding: 10px 20px;
+  transition: 100ms;
+}
+
+#form button:hover {
+  transform: translateY(-5px);
+}
+
+#messages {
+  flex-grow: 1;
+  display: block;
+  width: 100%;
+  overflow-y: auto;
+  /* Change justify-content to flex-start */
+}
+
+#messages ul {
+  list-style-type: none;
+  /* Remove bullets */
+  padding: 0;
+  /* Remove padding */
+  margin: 0;
+  /* Remove margins */
+}
+
+#messages ul li {
+  color: #41444B;
+}
+
+#messages::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F5F5F5;
+}
+
+#messages::-webkit-scrollbar {
+  width: 10px;
+  background-color: #F5F5F5;
+}
+
+#messages::-webkit-scrollbar-thumb {
+  background-color: #000000;
+  border: 2px solid #555555;
+}
+
+.user {
+  align-self: flex-end;
+  text-align: right;
+  width: auto;
+  padding: 10px 10px;
+  margin: 10px;
+  border-radius: 10px;
+  background-color: #8294C4;
+  /* Align text to the right */
+  animation: fadeInUp;
+  /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 300ms;
+  /* don't forget to set a duration! */
+}
+
+.ai {
+  background-color: #C2DEDC;
+  padding: 10px 10px;
+  margin: 10px;
+  border-radius: 10px;
+  /* Align text to the right */
+  animation: fadeInUp;
+  /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 300ms;
+  /* don't forget to set a duration! */
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 32px;
+  height: 32px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid black;
+  border-color: black transparent black transparent;
+  animation: lds-dual-rings 1s ease-in-out infinite;
+}
+
+.overlay {
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  backdrop-filter: blur(8px);
+  color: white;
+  text-align: center;
+  /* Apply the desired blur effect */
+  /* Ensures the content is not revealed until the animation */
+  animation: fadeInUp;
+  /* referring directly to the animation's @keyframe declaration */
+  animation-duration: 1s;
+  /* don't forget to set a duration! */
+  z-index: 1;
+}
+
+@keyframes lds-dual-rings {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.progress-bar {
+  width: 100%;
+  height: 40px;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.progress {
+  width: 0%;
+  height: 100%;
+  background-color: #4caf50;
+  transition: width 12s ease-in-out;
+}
